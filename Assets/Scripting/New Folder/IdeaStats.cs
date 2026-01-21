@@ -4,7 +4,7 @@ using UnityEngine;
 
 [System.Serializable]
 
-public class IdeaStats 
+public class IdeaStats
 {
     public int profitability;
     public int innovation;

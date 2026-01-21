@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb9bbda1ed060b4fb9393d0a3ff18ee, type: 3}
+  m_Name: New Choice Bank
+  m_EditorClassIdentifier: 
+  choices:
+  - choiceText: It targets a proven market.
+    profitabilityChange: 5
+    innovationChange: 0
+    riskChange: 0
+    publicAppealChange: -4
+    baseApproval: 2
+  - choiceText: "It\u2019s bold and innovative."
+    profitabilityChange: 0
+    innovationChange: 6
+    riskChange: 1
+    publicAppealChange: 4
+    baseApproval: 0
+  - choiceText: "It improves people\u2019s lives."
+    profitabilityChange: -2
+    innovationChange: 1
+    riskChange: 5
+    publicAppealChange: 0
+    baseApproval: 1
+  - choiceText: "It\u2019s safe and reliable."
+    profitabilityChange: 1
+    innovationChange: -2
+    riskChange: 0
+    publicAppealChange: -6
+    baseApproval: 1

@@ -10,7 +10,7 @@ public class DialogChoice
 
     public int profitabilityChange;
     public int innovationChange;
-    public int riskEffectChange;
+    public int riskChange;
     public int publicAppealChange;
 
     public int baseApproval;

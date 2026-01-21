@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 745cc822a4b548c4ba4f049b6b928816, type: 3}
+  m_Name: questionBank
+  m_EditorClassIdentifier: 
+  questions:
+  - questionText: 'Why should I care about this idea?
+
+'
+    category: publicAppeal
+  - questionText: 'What makes this better than existing options?
+
+'
+    category: profitability
+  - questionText: 'How risky is this really?
+
+'
+    category: risk
+  - questionText: 'Who is this even for?
+
+'
+    category: innovation

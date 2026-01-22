@@ -40,4 +40,6 @@ public class DialogueChoice
     public string choiceText;
     public DialogueData nextDialogue;
     public QuestData startQuest;
+
+    //public RewardData reward;
 }

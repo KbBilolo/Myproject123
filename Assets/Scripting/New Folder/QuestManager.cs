@@ -20,6 +20,8 @@ public class QuestManager : MonoBehaviour
 
         questProgress[quest] = 0;
         Debug.Log("Quest Started: " + quest.questName);
+
+        QuestTrackerUI.Instance?.ShowQuest(quest);
     }
 
     public void AddProgress(QuestData quest, int amount = 1)
@@ -29,14 +31,17 @@ public class QuestManager : MonoBehaviour
 
         questProgress[quest] += amount;
 
-        Debug.Log($"Quest Progress [{quest.questName}]: {questProgress[quest]}/{quest.requiredAmount}");
+        QuestTrackerUI.Instance?.UpdateQuest(quest);
 
         if (questProgress[quest] >= quest.requiredAmount)
         {
             completedQuests.Add(quest);
+            QuestTrackerUI.Instance?.HideQuest();
             Debug.Log("Quest Completed: " + quest.questName);
         }
     }
+
+    
 
     public bool IsQuestActive(QuestData quest)
     {

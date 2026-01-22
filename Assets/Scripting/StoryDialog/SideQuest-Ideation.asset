@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b318c291b95c63247a7550993bfe11ef, type: 3}
-  m_Name: New Quest Data
+  m_Name: SideQuest-Ideation
   m_EditorClassIdentifier: 
   questName: Find books for ideas
   requiredAmount: 3

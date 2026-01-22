@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e8adf06fc432124cbc18d040c6b16d4, type: 3}
+  m_Name: SCENE 1 ENTERING THE IDEATION HUB
+  m_EditorClassIdentifier: 
+  lines:
+  - speaker: "Professor Reyes \u2013 Program Head"
+    text: "Alright, listen up. You\u2019re here because your grades say you\u2019re
+      capable\u2026 not because your ideas are good."
+    onLineShownEvents: []
+    choices:
+    - choiceText: continue
+      nextLineIndex: 1
+      onChoiceSelected:
+        m_PersistentCalls:
+          m_Calls: []
+  - speaker: "Professor Reyes \u2013 Program Head"
+    text: "Most of you will fail before this phase ends. That\u2019s normal."
+    onLineShownEvents: []
+    choices:
+    - choiceText: continue
+      nextLineIndex: 2
+      onChoiceSelected:
+        m_PersistentCalls:
+          m_Calls: []
+  - speaker: Player
+    text: "\u2026Fail?"
+    onLineShownEvents: []
+    choices:
+    - choiceText: continue
+      nextLineIndex: 3
+      onChoiceSelected:
+        m_PersistentCalls:
+          m_Calls: []
+  - speaker: "Professor Reyes \u2013 Program Head"
+    text: "Yes. Ideas don\u2019t survive on confidence. They survive on validation."
+    onLineShownEvents: []
+    choices:
+    - choiceText: continue
+      nextLineIndex: 4
+      onChoiceSelected:
+        m_PersistentCalls:
+          m_Calls: []
+  - speaker: "Professor Reyes \u2013 Program Head"
+    text: "You have 14 days. No extensions. When the clock hits zero, your idea moves
+      forward\u2026 or it dies here."
+    onLineShownEvents: []
+    choices:
+    - choiceText: continue
+      nextLineIndex: -1
+      onChoiceSelected:
+        m_PersistentCalls:
+          m_Calls: []

@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - speaker: Alex
-    text: "I\u2019ll figure it out myself."
+    text: "Don\u2019t fall in love with your first idea."
     choices: []
+    startQuest: {fileID: 0}
   - speaker: Alex
     text: Because the Hub will tear it apart.
     choices: []
+    startQuest: {fileID: 0}

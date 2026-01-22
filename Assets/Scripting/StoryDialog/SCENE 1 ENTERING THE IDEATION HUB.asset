@@ -12,21 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaa22825058f68a44af8396f50d5fc99, type: 3}
   m_Name: SCENE 1 ENTERING THE IDEATION HUB
   m_EditorClassIdentifier: 
-  lines:
-  - speaker: Prof. Reyes
-    text: "Alright, listen up. You\u2019re here because your grades say you\u2019re
-      capable\u2026 not because your ideas are good."
-    choices: []
-  - speaker: Prof. Reyes
-    text: "ost of you will fail before this phase ends. That\u2019s normal."
-    choices: []
-  - speaker: Player
-    text: ...Fail?
-    choices: []
-  - speaker: Prof. Reyes
-    text: "Yes. Ideas don\u2019t survive on confidence. They survive on validation."
-    choices: []
-  - speaker: Prof. Reyes
-    text: "You have 14 days. No extensions. When the clock hits zero, your idea moves
-      forward\u2026 or it dies here."
-    choices: []
+  conditions:
+  - quest: {fileID: 0}
+    requiredState: 0
+    lines:
+    - speaker: Prof. Reyes
+      text: "Alright, listen up. You\u2019re here because your grades say you\u2019re
+        capable\u2026 not because your ideas are good."
+      choices: []
+    - speaker: Prof. Reyes
+      text: "Most of you will fail before this phase ends. That\u2019s normal."
+      choices: []
+    - speaker: You
+      text: "\u2026Fail?"
+      choices: []
+    - speaker: Prof. Reyes
+      text: "Yes. Ideas don\u2019t survive on confidence. They survive on validation."
+      choices: []
+    - speaker: Prof. Reyes
+      text: "You have 14 days. No extensions. When the clock hits zero, your idea
+        moves forward\u2026 or it dies here."
+      choices:
+      - choiceText: Understood.
+        nextDialogue: {fileID: 0}
+        startQuest: {fileID: 11400000, guid: 543e6af3e910d4b4d89d4602221ed093, type: 2}

@@ -22,12 +22,12 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Player")]
     public MonoBehaviour playerMovement;
-    public GameObject playercontrolUi;
+    public GameObject playerControlUI;
 
     [Header("Typewriter")]
     public float typingSpeed = 0.03f;
 
-    private DialogueData currentDialogue;
+    private DialogueLine[] currentLines;
     private int index;
 
     private List<GameObject> spawnedChoices = new();
@@ -44,7 +44,6 @@ public class DialogueManager : MonoBehaviour
 
     void Update()
     {
-        // Tap anywhere (mobile / PC)
         if (!dialoguePanel.activeSelf) return;
 
         if (Input.GetMouseButtonDown(0) && nextButton.gameObject.activeSelf)
@@ -55,26 +54,27 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(DialogueData dialogue, Transform npc = null)
     {
-        currentDialogue = dialogue;
+        currentLines = ResolveDialogue(dialogue);
+
+        if (currentLines == null || currentLines.Length == 0)
+        {
+            Debug.LogWarning("No valid dialogue found");
+            return;
+        }
+
         index = 0;
 
         if (playerMovement != null)
             playerMovement.enabled = false;
-        if (playercontrolUi != null)
-            playercontrolUi.SetActive(false);
 
-        if (npc != null && Camera.main != null)
-        {
-            Vector3 dir = npc.position - Camera.main.transform.position;
-            dir.y = 0;
-            Camera.main.transform.rotation = Quaternion.LookRotation(dir);
-        }
+        if (playerControlUI != null)
+            playerControlUI.SetActive(false);
 
         gameplayCamera.SetActive(false);
         dialogueCamera.SetActive(true);
 
-        nextButton.gameObject.SetActive(true);
         dialoguePanel.SetActive(true);
+        nextButton.gameObject.SetActive(true);
 
         ShowLine();
     }
@@ -82,15 +82,14 @@ public class DialogueManager : MonoBehaviour
     void ShowLine()
     {
         ClearChoices();
-        nextButton.gameObject.SetActive(true);
 
-        if (index >= currentDialogue.lines.Length)
+        if (index >= currentLines.Length)
         {
             EndDialogue();
             return;
         }
 
-        DialogueLine line = currentDialogue.lines[index];
+        DialogueLine line = currentLines[index];
 
         speakerText.text = line.speaker;
         StartTyping(line.text);
@@ -100,11 +99,36 @@ public class DialogueManager : MonoBehaviour
             nextButton.gameObject.SetActive(false);
             SpawnChoices(line.choices);
         }
-        if (line.startQuest != null)
+        else
         {
-            QuestManager.Instance.StartQuest(line.startQuest);
+            nextButton.gameObject.SetActive(true);
+        }
+    }
+
+    DialogueLine[] ResolveDialogue(DialogueData dialogue)
+    {
+        foreach (var condition in dialogue.conditions)
+        {
+            bool match = condition.requiredState switch
+            {
+                QuestState.NotStarted =>
+                    !QuestManager.Instance.IsQuestActive(condition.quest),
+
+                QuestState.InProgress =>
+                    QuestManager.Instance.IsQuestActive(condition.quest) &&
+                    !QuestManager.Instance.IsQuestCompleted(condition.quest),
+
+                QuestState.Completed =>
+                    QuestManager.Instance.IsQuestCompleted(condition.quest),
+
+                _ => false
+            };
+
+            if (match)
+                return condition.lines;
         }
 
+        return null;
     }
 
     void StartTyping(string text)
@@ -158,16 +182,13 @@ public class DialogueManager : MonoBehaviour
     {
         ClearChoices();
 
+        if (choice.startQuest != null)
+            QuestManager.Instance.StartQuest(choice.startQuest);
+
         if (choice.nextDialogue != null)
             StartDialogue(choice.nextDialogue);
-        if (choice.startQuest != null)
-        {
-            QuestManager.Instance.StartQuest(choice.startQuest);
-        }
         else
             EndDialogue();
-        
-
     }
 
     public void NextLine()
@@ -175,7 +196,7 @@ public class DialogueManager : MonoBehaviour
         if (isTyping)
         {
             StopCoroutine(typingRoutine);
-            dialogueText.text = currentDialogue.lines[index].text;
+            dialogueText.text = currentLines[index].text;
             isTyping = false;
             return;
         }
@@ -187,15 +208,13 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         dialoguePanel.SetActive(false);
-
         dialogueCamera.SetActive(false);
         gameplayCamera.SetActive(true);
 
         if (playerMovement != null)
             playerMovement.enabled = true;
-        if (playercontrolUi != null)
-            playercontrolUi.SetActive(true);
 
-        currentDialogue = null;
+        if (playerControlUI != null)
+            playerControlUI.SetActive(true);
     }
 }

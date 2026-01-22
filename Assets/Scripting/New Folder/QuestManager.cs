@@ -5,23 +5,51 @@ public class QuestManager : MonoBehaviour
 {
     public static QuestManager Instance;
 
-    private HashSet<QuestData> activeQuests = new();
+    private Dictionary<QuestData, int> questProgress = new();
+    private HashSet<QuestData> completedQuests = new();
 
     void Awake()
     {
-        Instance = this;
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
     }
 
     public void StartQuest(QuestData quest)
     {
-        if (activeQuests.Contains(quest)) return;
+        if (questProgress.ContainsKey(quest)) return;
 
-        activeQuests.Add(quest);
+        questProgress[quest] = 0;
         Debug.Log("Quest Started: " + quest.questName);
+    }
+
+    public void AddProgress(QuestData quest, int amount = 1)
+    {
+        if (!questProgress.ContainsKey(quest)) return;
+        if (completedQuests.Contains(quest)) return;
+
+        questProgress[quest] += amount;
+
+        Debug.Log($"Quest Progress [{quest.questName}]: {questProgress[quest]}/{quest.requiredAmount}");
+
+        if (questProgress[quest] >= quest.requiredAmount)
+        {
+            completedQuests.Add(quest);
+            Debug.Log("Quest Completed: " + quest.questName);
+        }
     }
 
     public bool IsQuestActive(QuestData quest)
     {
-        return activeQuests.Contains(quest);
+        return questProgress.ContainsKey(quest);
+    }
+
+    public bool IsQuestCompleted(QuestData quest)
+    {
+        return completedQuests.Contains(quest);
+    }
+
+    public int GetProgress(QuestData quest)
+    {
+        return questProgress.ContainsKey(quest) ? questProgress[quest] : 0;
     }
 }

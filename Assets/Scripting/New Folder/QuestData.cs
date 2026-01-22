@@ -4,4 +4,5 @@ using UnityEngine;
 public class QuestData : ScriptableObject
 {
     public string questName;
+    public int requiredAmount;
 }

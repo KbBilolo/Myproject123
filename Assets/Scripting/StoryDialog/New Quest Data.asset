@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b318c291b95c63247a7550993bfe11ef, type: 3}
   m_Name: New Quest Data
   m_EditorClassIdentifier: 
-  questName: 
+  questName: Find books for ideas
+  requiredAmount: 3

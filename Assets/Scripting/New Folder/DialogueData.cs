@@ -10,15 +10,22 @@ public class DialogueData : ScriptableObject
 public class DialogueLine
 {
     public string speaker;
+
     [TextArea(2, 4)]
     public string text;
 
-    public DialogueChoice[] choices; // optional
+    public DialogueChoice[] choices;
+
+    [Header("Quest Trigger")]
+    public QuestData startQuest; // optional
 }
+
 
 [System.Serializable]
 public class DialogueChoice
 {
     public string choiceText;
-    public DialogueData nextDialogue; // can be null
+    public DialogueData nextDialogue;
+    public QuestData startQuest; // optional
 }
+

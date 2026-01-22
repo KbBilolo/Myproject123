@@ -6,13 +6,14 @@ public class NewBehaviourScript : MonoBehaviour
 {
     public DialogueManager dialogueManager;
     public DialogueData dialogueData;
-    public GameObject talkButton; // mobile UI button
+    public GameObject talkButton;
 
     private bool playerInRange;
 
     void Start()
     {
-        talkButton.SetActive(false);
+        if (talkButton != null)
+            talkButton.SetActive(false);
     }
 
     void OnTriggerEnter(Collider other)
@@ -20,7 +21,8 @@ public class NewBehaviourScript : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
-            talkButton.SetActive(true);
+            if (talkButton != null)
+                talkButton.SetActive(true);
         }
     }
 
@@ -29,17 +31,19 @@ public class NewBehaviourScript : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
-            talkButton.SetActive(false);
+            if (talkButton != null)
+                talkButton.SetActive(false);
         }
     }
 
-    // Called by UI Button
+    // UI Button calls this
     public void Talk()
     {
         if (!playerInRange) return;
 
-        talkButton.SetActive(false);
-        dialogueManager.StartDialogue(dialogueData);
-    }
+        if (talkButton != null)
+            talkButton.SetActive(false);
 
+        dialogueManager.StartDialogue(dialogueData, transform);
+    }
 }

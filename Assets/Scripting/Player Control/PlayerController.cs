@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public bool useMobileInput = false;
 
     private Rigidbody rb;
-    //private Animator animator;
+    private Animator animator;
     [SerializeField]
     private Transform cam;
 
@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         
     }
     private void Start()
@@ -59,9 +59,9 @@ public class PlayerController : MonoBehaviour
         if (moveInput.sqrMagnitude < 0.01f)
         {
             // Commented out animation logic  
-            // animator.SetBool("isMoving", false);  
-            // animator.SetBool("isLturn", false);  
-            // animator.SetBool("isRturn", false);  
+            animator.SetBool("isMoving", false);  
+            animator.SetBool("isLturn", false);  
+            animator.SetBool("isRturn", false);  
             return;
         }
 
@@ -90,10 +90,10 @@ public class PlayerController : MonoBehaviour
 
         rb.MoveRotation(Quaternion.Euler(0f, smoothAngle, 0f));
 
-        // Commented out animation logic  
-        // animator.SetBool("isMoving", true);  
-        // animator.SetBool("isLturn", moveInput.x < -0.1f);  
-        // animator.SetBool("isRturn", moveInput.x > 0.1f);  
+        //Commented out animation logic  
+        animator.SetBool("isMoving", true);  
+        animator.SetBool("isLturn", moveInput.x < -0.1f);  
+        animator.SetBool("isRturn", moveInput.x > 0.1f);  
     }
 
     // Called by Mobile Joystick UI  

@@ -17,6 +17,6 @@ MonoBehaviour:
     text: First year in the Hub?
     choices:
     - choiceText: Yeah. Any advice?
-      nextDialogue: {fileID: 0}
+      nextDialogue: {fileID: 11400000, guid: 11d6e9ed06c160d478fc15e97fbaa158, type: 2}
     - choiceText: "I\u2019ll figure it out myself."
-      nextDialogue: {fileID: 0}
+      nextDialogue: {fileID: 11400000, guid: be697c62d93d6db4caa160cdfa31f005, type: 2}

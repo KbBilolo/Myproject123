@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaa22825058f68a44af8396f50d5fc99, type: 3}
   m_Name: SCENE 3 BRAINSTORMING STATION
   m_EditorClassIdentifier: 
-  lines: []
+  lines:
+  - speaker: 
+    text: 
+    choices: []

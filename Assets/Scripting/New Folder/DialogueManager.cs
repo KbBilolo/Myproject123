@@ -37,6 +37,8 @@ public class DialogueManager : MonoBehaviour
         currentDialogue = dialogue;
         index = 0;
 
+        nextButton.gameObject.SetActive(true); // safety reset
+
         gameplayCamera.SetActive(false);
         dialogueCamera.SetActive(true);
 
@@ -44,9 +46,11 @@ public class DialogueManager : MonoBehaviour
         ShowLine();
     }
 
+
     void ShowLine()
     {
         ClearChoices();
+        nextButton.gameObject.SetActive(true); // IMPORTANT FIX
 
         if (index >= currentDialogue.lines.Length)
         {
@@ -64,11 +68,8 @@ public class DialogueManager : MonoBehaviour
             nextButton.gameObject.SetActive(false);
             SpawnChoices(line.choices);
         }
-        else
-        {
-            nextButton.gameObject.SetActive(true);
-        }
     }
+
 
     void SpawnChoices(DialogueChoice[] choices)
     {

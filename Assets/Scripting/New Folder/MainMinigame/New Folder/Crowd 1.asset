@@ -9,8 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b318c291b95c63247a7550993bfe11ef, type: 3}
-  m_Name: MainQuest
+  m_Script: {fileID: 11500000, guid: 8189d2c51fd54924da26002c9366a39b, type: 3}
+  m_Name: Crowd 1
   m_EditorClassIdentifier: 
-  questName: Have a validation score 70% or up
-  requiredAmount: 70
+  crowdName: 
+  profitabilityWeight: 1
+  riskWeight: 1
+  publicAppealWeight: 1
+  innovationWeight: 1
+  hintText: 

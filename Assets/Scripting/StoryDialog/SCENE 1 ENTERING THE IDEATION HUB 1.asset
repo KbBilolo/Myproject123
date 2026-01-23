@@ -10,21 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eaa22825058f68a44af8396f50d5fc99, type: 3}
-  m_Name: SideQuest-Reaction1 2
+  m_Name: SCENE 1 ENTERING THE IDEATION HUB 1
   m_EditorClassIdentifier: 
   conditions:
-  - quest: {fileID: 11400000, guid: 543e6af3e910d4b4d89d4602221ed093, type: 2}
-    requiredState: 2
+  - quest: {fileID: 11400000, guid: e15a7432d0cf1d94f89adc3606887188, type: 2}
+    requiredState: 0
     lines:
-    - speaker: You
-      text: Yes! I have now enough ideas.
+    - speaker: Prof. Reyes
+      text: "Alright, listen up. You\u2019re here because your grades say you\u2019re
+        capable\u2026 not because your ideas are good."
       choices: []
-    - speaker: You
-      text: I hope Prof. reyes would accept one of my ideas.
-      choices: []
-    - speaker: You
-      text: I hope Prof. reyes would accept one of my ideas.
+    - speaker: Prof. Reyes
+      text: "You have within the day. No extensions. When the clock hits zero, your
+        idea moves forward\u2026 or it dies here."
       choices:
-      - choiceText: I should consult with Professor first.
+      - choiceText: I'll make it happen sir.
         nextDialogue: {fileID: 0}
         startQuest: {fileID: 11400000, guid: e15a7432d0cf1d94f89adc3606887188, type: 2}

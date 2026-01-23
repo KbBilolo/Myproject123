@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaa22825058f68a44af8396f50d5fc99, type: 3}
+  m_Name: SCENE 1 ENTERING THE IDEATION HUB 2
+  m_EditorClassIdentifier: 
+  conditions:
+  - quest: {fileID: 11400000, guid: e15a7432d0cf1d94f89adc3606887188, type: 2}
+    requiredState: 1
+    lines:
+    - speaker: Prof. Reyes
+      text: Alright, listen up. You have this idea to use
+      choices: []
+    - speaker: Prof. Reyes
+      text: 'Reach '
+      choices: []
+    - speaker: You
+      text: "\u2026Fail?"
+      choices: []
+    - speaker: Prof. Reyes
+      text: "Yes. Ideas don\u2019t survive on confidence. They survive on validation."
+      choices: []
+    - speaker: Prof. Reyes
+      text: "You have 14 days. No extensions. When the clock hits zero, your idea
+        moves forward\u2026 or it dies here."
+      choices:
+      - choiceText: Understood.
+        nextDialogue: {fileID: 0}
+        startQuest: {fileID: 11400000, guid: 543e6af3e910d4b4d89d4602221ed093, type: 2}

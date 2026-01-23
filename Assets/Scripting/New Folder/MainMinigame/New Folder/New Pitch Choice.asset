@@ -9,8 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b318c291b95c63247a7550993bfe11ef, type: 3}
-  m_Name: MainQuest
+  m_Script: {fileID: 11500000, guid: aa6598edeeec10748a98bd0c93801207, type: 3}
+  m_Name: New Pitch Choice
   m_EditorClassIdentifier: 
-  questName: Have a validation score 70% or up
-  requiredAmount: 70
+  choiceText: 
+  statImpact:
+    profitability: 0
+    risk: 0
+    publicAppeal: 0
+    innovation: 0
+  reactionText: 

@@ -2504,7 +2504,7 @@ GameObject:
   - component: {fileID: 1851473715}
   - component: {fileID: 1851473714}
   m_Layer: 0
-  m_Name: MainMenu
+  m_Name: Main Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2523,10 +2523,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1065486221}
+  - {fileID: 1304973965}
   - {fileID: 2070738409}
   - {fileID: 1445794800}
   - {fileID: 498790364}
-  - {fileID: 1304973965}
   m_Father: {fileID: 1853358060}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

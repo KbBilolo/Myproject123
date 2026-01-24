@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SCENE 1 ENTERING THE IDEATION HUB
   m_EditorClassIdentifier: 
   conditions:
-  - quest: {fileID: 11400000, guid: e15a7432d0cf1d94f89adc3606887188, type: 2}
+  - quest: {fileID: 11400000, guid: 543e6af3e910d4b4d89d4602221ed093, type: 2}
     requiredState: 0
     lines:
     - speaker: Prof. Reyes
@@ -22,10 +22,10 @@ MonoBehaviour:
       choices: []
     - speaker: Prof. Reyes
       text: "Most of you will fail before this phase ends. That\u2019s normal."
-      choices: []
-    - speaker: You
-      text: "\u2026Fail?"
-      choices: []
+      choices:
+      - choiceText: "\u2026Fail?"
+        nextDialogue: {fileID: 0}
+        startQuest: {fileID: 0}
     - speaker: Prof. Reyes
       text: "Yes. Ideas don\u2019t survive on confidence. They survive on validation."
       choices: []
@@ -33,6 +33,6 @@ MonoBehaviour:
       text: "You have 14 days. No extensions. When the clock hits zero, your idea
         moves forward\u2026 or it dies here."
       choices:
-      - choiceText: Understood.
+      - choiceText: I need to ack quick!
         nextDialogue: {fileID: 0}
         startQuest: {fileID: 11400000, guid: 543e6af3e910d4b4d89d4602221ed093, type: 2}

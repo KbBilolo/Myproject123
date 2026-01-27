@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaa22825058f68a44af8396f50d5fc99, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: 
+  conditions:
+  - quest: {fileID: 11400000, guid: 543e6af3e910d4b4d89d4602221ed093, type: 2}
+    requiredState: 0
+    lines:
+    - speaker: Professor Reyes
+      text: Alright, Listen up. You're here because your grades say you're capable...
+        not because your ideas are good.
+      choices: []
+    - speaker: Professor Reyes
+      text: Most of you will fail before this phase ends. That's normal.
+      choices:
+      - choiceText: ...Fail?
+        nextDialogue: {fileID: 0}
+        startQuest: {fileID: 0}
+    - speaker: Professor Reyes
+      text: Yes. Ideas don't survive on confidence. They survive on validation.
+      choices: []
+    - speaker: Professor Reyes
+      text: You have within the day to come up with ideas. No extensions. wben the
+        clock hits zero, your idea moves forward... or it dies here.
+      choices:
+      - choiceText: I need to act quickly!
+        nextDialogue: {fileID: 0}
+        startQuest: {fileID: 0}
+  - quest: {fileID: 11400000, guid: 543e6af3e910d4b4d89d4602221ed093, type: 2}
+    requiredState: 1
+    lines:
+    - speaker: Professor Reyes
+      text: Any luck?
+      choices: []
+  - quest: {fileID: 11400000, guid: 543e6af3e910d4b4d89d4602221ed093, type: 2}
+    requiredState: 2
+    lines:
+    - speaker: Professor Reyes
+      text: Oh! Player you already have ideas?
+      choices:
+      - choiceText: Yes, Prof.
+        nextDialogue: {fileID: 0}
+        startQuest: {fileID: 0}
+    - speaker: Professor Reyes
+      text: Ok them let me review it.
+      choices: []
+    - speaker: Narrator
+      text: Professor Reyes inspected and critized the ideas, but he approves one
+        of the ideas.
+      choices: []
+    - speaker: Professor Reyes
+      text: Well, most of your ideas if not already given has been bad.
+      choices: []
+    - speaker: Professor Reyes
+      text: Well, atleast you had one good idea.
+      choices: []
+    - speaker: Professor Reyes
+      text: You Passed! Go have an approval rating among you peers and the partnership
+        industry.
+      choices:
+      - choiceText: Thank you, Prof, I'll go into it right away.
+        nextDialogue: {fileID: 0}
+        startQuest: {fileID: 0}
+  - quest: {fileID: 11400000, guid: e15a7432d0cf1d94f89adc3606887188, type: 2}
+    requiredState: 0
+    lines:
+    - speaker: Narrator
+      text: The room feels heavier than it looks. A podium at the center. Empty seats
+        watching silently.
+      choices: []

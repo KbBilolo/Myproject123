@@ -18,6 +18,8 @@ public class PitchFlowBridge : MonoBehaviour
     public QuestData pitchSuccessQuest;  // requiredAmount = 1
     public QuestData pitchFailQuest;     // requiredAmount = 1
 
+
+    //I added this to stop the pitch minigame from blocking the players view when not in use.
     void Start()
     {
         // Initially hide the minigame UI

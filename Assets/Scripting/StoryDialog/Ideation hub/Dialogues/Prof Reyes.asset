@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eaa22825058f68a44af8396f50d5fc99, type: 3}
-  m_Name: Dialogue
+  m_Name: Prof Reyes
   m_EditorClassIdentifier: 
   conditions:
   - quest: {fileID: 11400000, guid: 543e6af3e910d4b4d89d4602221ed093, type: 2}
@@ -72,21 +72,36 @@ MonoBehaviour:
         nextDialogue: {fileID: 0}
         startQuest: {fileID: 0}
   - quest: {fileID: 11400000, guid: e15a7432d0cf1d94f89adc3606887188, type: 2}
-    requiredState: 1
+    requiredState: 0
     lines:
     - speaker: Narrator
       text: The room feels heavier than it looks. A podium at the center. Empty seats
         watching silently.
       choices: []
-  - quest: {fileID: 11400000, guid: 5bbf2eb290c64604590037673d691445, type: 2}
-    requiredState: 1
+  - quest: {fileID: 11400000, guid: d443d885026f1024f81465831ddbf85b, type: 2}
+    requiredState: 2
     lines:
-    - speaker: Alex
-      text: How did it go?
+    - speaker: Narrator
+      text: The idea landed... not perfectly, but it didn't collapse.
       choices: []
-    - speaker: Mika
-      text: Everyone looks confident between rounds.
+    - speaker: Narrator
+      text: It's rough. Incomplete. But there's something there.
       choices: []
-    - speaker: Karl
-      text: It gets harder from here.
+    - speaker: Professor Reyes
+      text: So, You survived the first round.
+      choices:
+      - choiceText: Barely.
+        nextDialogue: {fileID: 0}
+        startQuest: {fileID: 0}
+    - speaker: Professor Reyes
+      text: That's how most good ideas start.
+      choices: []
+    - speaker: Professor Reyes
+      text: Round Two is different.
+      choices: []
+    - speaker: Professor Reyes
+      text: You don't improve ideas alone.
+      choices: []
+    - speaker: Professor Reyes
+      text: Go out. Talk to people. Observe. Listen.
       choices: []

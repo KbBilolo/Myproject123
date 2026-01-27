@@ -3220,7 +3220,7 @@ GameObject:
   - component: {fileID: 673174501}
   - component: {fileID: 673174500}
   m_Layer: 5
-  m_Name: Pause Menu
+  m_Name: PauseBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11997,7 +11997,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 750225494}
   m_FillRect: {fileID: 821875494}
   m_HandleRect: {fileID: 750225493}

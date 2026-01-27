@@ -72,9 +72,21 @@ MonoBehaviour:
         nextDialogue: {fileID: 0}
         startQuest: {fileID: 0}
   - quest: {fileID: 11400000, guid: e15a7432d0cf1d94f89adc3606887188, type: 2}
-    requiredState: 0
+    requiredState: 1
     lines:
     - speaker: Narrator
       text: The room feels heavier than it looks. A podium at the center. Empty seats
         watching silently.
+      choices: []
+  - quest: {fileID: 11400000, guid: 5bbf2eb290c64604590037673d691445, type: 2}
+    requiredState: 1
+    lines:
+    - speaker: Alex
+      text: How did it go?
+      choices: []
+    - speaker: Mika
+      text: Everyone looks confident between rounds.
+      choices: []
+    - speaker: Karl
+      text: It gets harder from here.
       choices: []

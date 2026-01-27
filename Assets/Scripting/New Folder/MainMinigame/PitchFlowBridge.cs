@@ -28,10 +28,10 @@ public class PitchFlowBridge : MonoBehaviour
 
     public void ReturnToProfessor()
     {
-        // Hide the minigame UI
+        // Close pitch UI
         if (minigameCanvas != null) minigameCanvas.enabled = false;
 
-        // Track that a round finished
+        // Mark: finished one round (only if we actually ended a round)
         if (pitchRoundsQuest != null)
         {
             if (!QuestManager.Instance.IsQuestActive(pitchRoundsQuest))
@@ -40,7 +40,7 @@ public class PitchFlowBridge : MonoBehaviour
             QuestManager.Instance.AddProgress(pitchRoundsQuest, 1);
         }
 
-        // Decide which Prof dialogue to play
+        // If minigame ended, mark success/fail quests
         if (minigameManager.State == IdeationPitchMinigameManager.GameState.CompletedSuccess)
         {
             if (pitchSuccessQuest != null)
@@ -50,9 +50,6 @@ public class PitchFlowBridge : MonoBehaviour
 
                 QuestManager.Instance.AddProgress(pitchSuccessQuest, 1);
             }
-
-            if (profOnSuccessDialogue != null)
-                dialogueManager.StartDialogue(profOnSuccessDialogue);
         }
         else if (minigameManager.State == IdeationPitchMinigameManager.GameState.CompletedFail)
         {
@@ -63,17 +60,13 @@ public class PitchFlowBridge : MonoBehaviour
 
                 QuestManager.Instance.AddProgress(pitchFailQuest, 1);
             }
+        }
 
-            if (profOnFailDialogue != null)
-                dialogueManager.StartDialogue(profOnFailDialogue);
-        }
-        else
-        {
-            // Normal “after round” talk
-            if (profAfterRoundDialogue != null)
-                dialogueManager.StartDialogue(profAfterRoundDialogue);
-        }
+        // IMPORTANT: Do NOT start dialogue here.
+        // Player must walk to Prof and press Talk.
+        Debug.Log("[PitchFlowBridge] Round closed. Go talk to Prof manually.");
     }
+
 
     // Call this from your pitch-area “Start” button/trigger when the player comes back for next round
     public void StartOrContinueMinigame()

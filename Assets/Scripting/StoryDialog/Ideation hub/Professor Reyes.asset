@@ -40,7 +40,7 @@ MonoBehaviour:
       - choiceText: Ok.
         nextDialogue: {fileID: 0}
         startQuest: {fileID: 11400000, guid: e15a7432d0cf1d94f89adc3606887188, type: 2}
-  - quest: {fileID: 11400000, guid: 5bbf2eb290c64604590037673d691445, type: 2}
+  - quest: {fileID: 11400000, guid: e15a7432d0cf1d94f89adc3606887188, type: 2}
     requiredState: 1
     lines:
     - speaker: Prof Reyes
@@ -48,7 +48,19 @@ MonoBehaviour:
       choices:
       - choiceText: yeah a little
         nextDialogue: {fileID: 0}
-        startQuest: {fileID: 0}
+        startQuest: {fileID: 11400000, guid: 5bbf2eb290c64604590037673d691445, type: 2}
+  - quest: {fileID: 11400000, guid: 5bbf2eb290c64604590037673d691445, type: 2}
+    requiredState: 2
+    lines:
+    - speaker: Prof reyes
+      text: Good. you can now proceed to the next part of the startup
+      choices:
+      - choiceText: Thanks
+        nextDialogue: {fileID: 0}
+        startQuest: {fileID: 11400000, guid: d443d885026f1024f81465831ddbf85b, type: 2}
+    - speaker: Prof reyes
+      text: Good luck kiddo!
+      choices: []
   - quest: {fileID: 11400000, guid: d443d885026f1024f81465831ddbf85b, type: 2}
     requiredState: 2
     lines:
@@ -57,4 +69,7 @@ MonoBehaviour:
       choices:
       - choiceText: Thanks
         nextDialogue: {fileID: 0}
-        startQuest: {fileID: 0}
+        startQuest: {fileID: 11400000, guid: d443d885026f1024f81465831ddbf85b, type: 2}
+    - speaker: Prof reyes
+      text: Good luck kiddo!
+      choices: []

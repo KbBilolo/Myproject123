@@ -186,7 +186,7 @@ public class IdeationPitchUIController_Slider : MonoBehaviour
         roundSummaryPanel.SetActive(true);
 
         // Title like: "Round 1 Summary"
-        summaryTitleText.text = $"Round {manager.RoundNumber} Summary";
+        summaryTitleText.text = $"Round {result.roundJustFinished} Summary";
 
         // Bullet mapping: keep it simple now, refine later
         summaryBullet1Text.text = result.roundSummary ?? "You received mixed feedback from the room.";
@@ -206,6 +206,23 @@ public class IdeationPitchUIController_Slider : MonoBehaviour
 
         onReturnToProfessor?.Invoke();
     }
+    public void ResetForNewRound()
+    {
+        // Unlock input
+        selectedChoiceIndex = -1;
+        locked = false;
+
+        // Hide overlays
+        feedbackPanel.SetActive(false);
+        if (moodPanel != null) moodPanel.SetActive(false);
+        roundSummaryPanel.SetActive(false);
+
+        // Reset buttons
+        confirmButton.interactable = false;
+        for (int i = 0; i < choiceButtons.Length; i++)
+            choiceButtons[i].interactable = true;
+    }
+
 
     Sprite PickMoodSprite(float delta)
     {

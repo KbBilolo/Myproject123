@@ -51,6 +51,8 @@ public class IdeationPitchMinigameManager : MonoBehaviour
 
     public struct ConfirmResult
     {
+        public int roundJustFinished;
+
         public float approvalBefore;
         public float approvalAfter;
         public float delta;
@@ -61,6 +63,7 @@ public class IdeationPitchMinigameManager : MonoBehaviour
         public bool success;
         public string roundSummary;
     }
+
 
     [Header("Minigame Config")]
     [SerializeField] private float startingApproval = 40f;
@@ -176,6 +179,8 @@ public class IdeationPitchMinigameManager : MonoBehaviour
         if (globalQuestionIndex >= questions.Count) globalQuestionIndex = 0;
 
         bool roundEnded = questionIndexInRound >= questionsPerRound;
+        int roundJustFinished = RoundNumber; // roundIndex + 1 at this moment
+
         bool gameEnded = false;
         bool success = false;
         string summary = null;
@@ -216,6 +221,8 @@ public class IdeationPitchMinigameManager : MonoBehaviour
 
         return new ConfirmResult
         {
+            roundJustFinished = roundJustFinished,
+
             approvalBefore = before,
             approvalAfter = approval,
             delta = delta,
@@ -225,6 +232,7 @@ public class IdeationPitchMinigameManager : MonoBehaviour
             success = success,
             roundSummary = summary
         };
+
     }
 
     private float CalculateApprovalDelta(StatDelta d)

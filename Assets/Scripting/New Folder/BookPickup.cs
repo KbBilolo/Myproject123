@@ -52,6 +52,7 @@ public class BookPickup : MonoBehaviour
 
         QuestManager.Instance.AddProgress(bookQuest, 1);
         dialogueManager.StartDialogue(dialogueData, transform);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+        //Destroy(gameObject);
     }
 }

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PitchRoundsQuest
   m_EditorClassIdentifier: 
   questName: Pitch rouds completed
-  requiredAmount: 4
+  requiredAmount: 1

@@ -47,6 +47,7 @@ public class PitchFlowBridge : MonoBehaviour
             {
                 if (!QuestManager.Instance.IsQuestActive(pitchSuccessQuest))
                     QuestManager.Instance.StartQuest(pitchSuccessQuest);
+                    
 
                 QuestManager.Instance.AddProgress(pitchSuccessQuest, 1);
             }
@@ -71,6 +72,15 @@ public class PitchFlowBridge : MonoBehaviour
     // Call this from your pitch-area “Start” button/trigger when the player comes back for next round
     public void StartOrContinueMinigame()
     {
+        // If game already ended, don't reopen the minigame
+        if (minigameManager.State == IdeationPitchMinigameManager.GameState.CompletedSuccess ||
+            minigameManager.State == IdeationPitchMinigameManager.GameState.CompletedFail)
+        {
+            Debug.Log("[PitchFlowBridge] Minigame already finished. Go talk to Prof.");
+            if (minigameCanvas != null) minigameCanvas.enabled = false; // safety
+            return;
+        }
+
         if (minigameCanvas != null) minigameCanvas.enabled = true;
 
         if (minigameManager.State == IdeationPitchMinigameManager.GameState.NotStarted)
@@ -78,6 +88,8 @@ public class PitchFlowBridge : MonoBehaviour
         else if (minigameManager.State == IdeationPitchMinigameManager.GameState.WaitingAfterRound)
             minigameManager.StartNextRound();
 
+        minigameUI.ResetForNewRound();
         minigameUI.RefreshUI();
     }
+
 }

@@ -4,9 +4,11 @@ using UnityEngine.UI;
 public class BookPickup : MonoBehaviour
 {
     public QuestData bookQuest;
-    public GameObject inspectButton; // Assign the UI button in the Inspector
+    public GameObject inspectButton;
     public DialogueManager dialogueManager;
     public DialogueData dialogueData;
+    public GameObject bookVisual; // Assign the visual book GameObject here
+    public bool bookedInspected = false;
 
     private bool playerInRange = false;
 
@@ -14,6 +16,10 @@ public class BookPickup : MonoBehaviour
     {
         if (inspectButton != null)
             inspectButton.SetActive(false);
+        if (bookVisual != null)
+            bookVisual.SetActive(true);
+
+        bookedInspected = false;
     }
 
     void OnTriggerEnter(Collider other)
@@ -21,12 +27,15 @@ public class BookPickup : MonoBehaviour
         if (!other.CompareTag("Player")) return;
 
         playerInRange = true;
-        if (inspectButton != null)
+        if (inspectButton != null && bookedInspected == false)
         {
             inspectButton.SetActive(true);
-            // Remove previous listeners to avoid stacking
-            inspectButton.GetComponent<Button>().onClick.RemoveAllListeners();
-            inspectButton.GetComponent<Button>().onClick.AddListener(Inspect);
+            var button = inspectButton.GetComponent<Button>();
+            if (button != null)
+            {
+                button.onClick.RemoveAllListeners();
+                button.onClick.AddListener(Inspect);
+            }
         }
     }
 
@@ -38,11 +47,12 @@ public class BookPickup : MonoBehaviour
         if (inspectButton != null)
         {
             inspectButton.SetActive(false);
-            inspectButton.GetComponent<Button>().onClick.RemoveAllListeners();
+            var button = inspectButton.GetComponent<Button>();
+            if (button != null)
+                button.onClick.RemoveAllListeners();
         }
     }
 
-    // Called by the Inspect button
     public void Inspect()
     {
         if (!playerInRange) return;
@@ -50,9 +60,13 @@ public class BookPickup : MonoBehaviour
         if (inspectButton != null)
             inspectButton.SetActive(false);
 
+        if (bookVisual != null)
+            bookVisual.SetActive(false); // Hide the book visual
+            bookedInspected = true;
+
+
         QuestManager.Instance.AddProgress(bookQuest, 1);
         dialogueManager.StartDialogue(dialogueData, transform);
-        gameObject.SetActive(false);
-        //Destroy(gameObject);
+        // Optionally: keep this GameObject active for further logic
     }
 }

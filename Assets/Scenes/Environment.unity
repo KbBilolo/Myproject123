@@ -7162,7 +7162,7 @@ MonoBehaviour:
   bookQuest: {fileID: 11400000, guid: 543e6af3e910d4b4d89d4602221ed093, type: 2}
   inspectButton: {fileID: 2091131630}
   dialogueManager: {fileID: 1780848326}
-  dialogueData: {fileID: 11400000, guid: 02dd7e3fbc5980a40a6393e5dcb31f9a, type: 2}
+  dialogueData: {fileID: 11400000, guid: ec8cd36ace91e784382eaad885148523, type: 2}
   bookVisual: {fileID: 1694319784062142864}
   bookedInspected: 0
 --- !u!1 &1279029683
@@ -8364,7 +8364,7 @@ MonoBehaviour:
   bookQuest: {fileID: 11400000, guid: 543e6af3e910d4b4d89d4602221ed093, type: 2}
   inspectButton: {fileID: 609311742}
   dialogueManager: {fileID: 1780848326}
-  dialogueData: {fileID: 11400000, guid: f4e7526ac4020404e871fec75679ebcb, type: 2}
+  dialogueData: {fileID: 11400000, guid: ec8cd36ace91e784382eaad885148523, type: 2}
   bookVisual: {fileID: 7186093905141579362}
   bookedInspected: 0
 --- !u!1 &1469130161

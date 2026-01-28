@@ -19,3 +19,15 @@ MonoBehaviour:
     - speaker: You
       text: This book gave me a great idea!
       choices: []
+  - quest: {fileID: 11400000, guid: 543e6af3e910d4b4d89d4602221ed093, type: 2}
+    requiredState: 1
+    lines:
+    - speaker: You
+      text: This is a bad idea!
+      choices: []
+  - quest: {fileID: 11400000, guid: 543e6af3e910d4b4d89d4602221ed093, type: 2}
+    requiredState: 2
+    lines:
+    - speaker: You
+      text: This is enough Ideas.
+      choices: []

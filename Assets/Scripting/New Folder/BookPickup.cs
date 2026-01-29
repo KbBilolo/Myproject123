@@ -10,6 +10,10 @@ public class BookPickup : MonoBehaviour
     public GameObject bookVisual; // Assign the visual book GameObject here
     public bool bookedInspected = false;
 
+    [Header("Locking")]
+    public bool requireQuestToBeActive = true;
+
+
     private bool playerInRange = false;
 
     void Start()
@@ -27,6 +31,18 @@ public class BookPickup : MonoBehaviour
         if (!other.CompareTag("Player")) return;
 
         playerInRange = true;
+
+        //  Gate: don't allow interaction until the quest giver started it
+        if (requireQuestToBeActive)
+        {
+            if (bookQuest == null || !QuestManager.Instance.IsQuestActive(bookQuest))
+            {
+                // Player can be in range, but no inspect yet
+                if (inspectButton != null) inspectButton.SetActive(false);
+                return;
+            }
+        }
+
         if (inspectButton != null && bookedInspected == false)
         {
             inspectButton.SetActive(true);
@@ -38,6 +54,7 @@ public class BookPickup : MonoBehaviour
             }
         }
     }
+
 
     void OnTriggerExit(Collider other)
     {
@@ -61,12 +78,24 @@ public class BookPickup : MonoBehaviour
             inspectButton.SetActive(false);
 
         if (bookVisual != null)
-            bookVisual.SetActive(false); // Hide the book visual
-            bookedInspected = true;
+        {
+            bookVisual.SetActive(false);
+        }
+        bookedInspected = true;
 
+        //  Ensure quest exists or started before adding progress
+        if (bookQuest != null)
+        {
+            if (bookQuest != null && QuestManager.Instance.IsQuestActive(bookQuest))
+            {
+                QuestManager.Instance.AddProgress(bookQuest, 1);
+            }
 
-        QuestManager.Instance.AddProgress(bookQuest, 1);
-        dialogueManager.StartDialogue(dialogueData, transform);
-        // Optionally: keep this GameObject active for further logic
+        }
+
+        // Dialogue (optional)
+        if (dialogueManager != null && dialogueData != null)
+            dialogueManager.StartDialogue(dialogueData, transform);
     }
+
 }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4454e16a5500fcb43aa2814d7ca68cb5
+guid: d240b73811bbca042b20e4b1de999f68
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: TrimSheet_2_Texture
-    second: {fileID: 2100000, guid: d25d43a03264189489c0689952a77021, type: 2}
+      name: TrimSheet_1_Texture
+    second: {fileID: 2100000, guid: ea9710630a1063b42ab8d4f60a5f25d6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
